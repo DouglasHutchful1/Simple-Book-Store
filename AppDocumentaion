@@ -1,0 +1,87 @@
+Book Store App Assessment
+This application is built with .NET Core for the backend and React for the frontend. It uses JWT for authentication and authorization, and all communications are secured using HTTPS with self-signed certificates.
+
+
+
+--Requirements
+.NET Core SDK
+React.js and npm
+MySQL
+ web browser 
+
+--Setup
+Backend Setup
+
+Extract the zip
+cd book-store-app/BookStoreApi
+Install .NET dependencies:
+
+
+dotnet restore
+--Set up the database:
+Ensure you have MySQL running and create a database named BookStore. Update the connection string in appsettings.json as needed.
+
+Run the application:
+
+
+dotnet run
+This will start the backend server on https://localhost:5001.
+
+
+
+--Frontend
+
+Install Node.js dependencies:
+
+
+-npm install
+Start the React application:
+
+
+-npm start
+The frontend will start on http://localhost:3000.
+
+--Configuration
+Backend Configuration
+The backend configuration is primarily located in appsettings.json. Key configurations include:
+
+--Database Connection:
+Update the ConnectionStrings:DefaultConnection with your MySQL database details.
+
+
+--HTTPS Configuration:
+Ensure your self-signed certificate details are correctly set up.
+
+
+
+REACT_APP_API_URL=https://localhost:5001/api
+
+
+--Running the Application
+Backend: Run dotnet run in the BookStoreApi directory.
+Frontend: Run npm start in the root directory.
+--Adding a Book
+To add a book, navigate to the add book page on the frontend and fill out the form. The form will make a POST request to the backend to save the book details in the database.
+
+--Updating a Book
+To update a book, click on the update button next to a book item on the dashboard. This will navigate to an update form pre-filled with the book details.
+
+--Deleting a Book
+To delete a book, click on the delete button next to a book item on the dashboard. This will send a DELETE request to the backend to remove the book from the database.
+
+
+
+HTTPS Configuration
+The backend server is configured to use HTTPS with a self-signed certificate. Ensure your local environment trusts the self-signed certificate.
+
+--Trusting the Self-Signed Certificate
+Run the following command to trust the self-signed certificate:
+dotnet dev-certs https --trust
+
+CORS
+CORS (Cross-Origin Resource Sharing) is configured to allow requests from http://localhost:3000. This configuration is set in the Program.cs file.
+
+
+
+
+
